@@ -2,7 +2,7 @@
 
 using bfv.spring4oe.sample.ILogging from propath.
 
-class spring4oe.misc.Logger: 
+class bfv.spring4oe.misc.Logger: 
   
   define private stream logStream.
   
