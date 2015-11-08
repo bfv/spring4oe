@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+           
+    <bean id="logger" class="bfv.spring4oe.misc.Logger" />
+    
+    <bean id="applogger" class="bfv.spring4oe.sample.AppLogger" init-method="InitLogger">
+      <property name="LogFilename" value="./../../log/app.log"/>
+    </bean>
+    
+</beans>  
+  
