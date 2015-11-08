@@ -34,7 +34,7 @@ class bfv.spring4oe.beans.factory.XmlBeanDefinitionReader inherits AbstractBeanD
     create x-noderef  xparam.
     
     
-    successful = xdoc:load("longchar", source, true) no-error.
+    successful = xdoc:load("longchar", source, false) no-error.
     
     if (not successful) then do:
       Logger:Information("Loading XML failed").
