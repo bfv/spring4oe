@@ -27,7 +27,7 @@ To make sure your XML is valid you may want to enter the appropriate namespaces.
 ### Adding a bean
 Spring is ibuild around the concept of mapping a logical to an actual class. The simplest form of defining a bean looks like:
 ```xml
-<bean id="logger" class="bfv.spring4oe.misc.Logger" />
+<bean id="applogger" class="bfv.spring4oe.sample.AppLogger" />
 ```
 ### Getting an  instance in ABL
 ```
