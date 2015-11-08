@@ -5,6 +5,7 @@ using bfv.spring4oe.beans.factory.IBeanRegistry.
 using bfv.spring4oe.aop.IAopRegistry.
 using bfv.logging.Logger.
 using bfv.spring4oe.beans.factory.BeanDefinition.
+using bfv.spring4oe.beans.factory.BeanInstantiationException.
 
 block-level on error undo, throw.
 
@@ -156,6 +157,10 @@ class bfv.spring4oe.beans.factory.XmlBeanDefinitionReader inherits AbstractBeanD
             processProperty(beandef, xparam).
           end.    
           
+          when "constructor-arg" then do:
+            processConstructorArg(beandef, xparam).
+          end.
+          
         end case.
         
       end.
@@ -213,6 +218,11 @@ class bfv.spring4oe.beans.factory.XmlBeanDefinitionReader inherits AbstractBeanD
   end method.
     
     
+  method private void processConstructorArg(beandef as BeanDefinition, xparam as handle):
+    undo, throw new BeanInstantiationException("constructor-arg is not supported").
+  end method.
+  
+  
   method private void processAlias(xalias as handle):
     
     def var cname  as character no-undo.
