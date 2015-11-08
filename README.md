@@ -87,3 +87,28 @@ By default a bean is a singleton. The container returns the same reference every
 ```xml
 <bean id="pablo" class="Progress.Lang.Object" scope="prototype" />
 ```
+*PS. why pablo? It stands for Plain ABL Object, which is an simpel object which doesn't need some complicated instantiation. It's the ABL version of a POJO.*
+
+### Factory methods
+Sometimes it necessary to control the lifespan of an object by logic in the class itself. Spring4oe gives this possibility via a so-called factory method. This factory method is a static method and can be set via the *factory-method* on the bean.
+```xml
+<bean id="factmeth" class="bfv.spring4oe.sample.FactoryMethodSample" 
+  factory-method="GiveMeAnInstance" />
+```
+with the accompanying 4GL
+<pre>
+class bfv.spring4oe.sample.FactoryMethodSample: 
+  
+  method public static FactoryMethodSample GiveMeAnInstance():
+    return new FactoryMethodSample().
+  end method. 
+  
+end class.
+</pre>
+
+### Alias
+Whenever it is handy to have two logical names for what is in essence the same, one can use an alias:
+```xml
+<bean id="pablo" class="Progress.Lang.Object" scope="prototype" />
+<alias alias="juan" name="pablo" />
+```
