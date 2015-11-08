@@ -16,7 +16,7 @@ factory = new XmlBeanFactory("./bfv/spring4oe/sample/beans.xml").
 logger = cast(factory:GetBean("applogger"), "ILogging").
 logger2 = cast(factory:GetBean("applogger"), "ILogging").
 
-message logger:Equals(logger2).
+message logger:Equals(logger2).   // = singleton
   
 logger:Log("hello world").
 

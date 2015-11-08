@@ -13,7 +13,7 @@ class bfv.spring4oe.misc.Logger:
   
   
   method public static void Information(messageText as character):
-    log-manager:write-message(messageText).
+    put stream logStream unformatted iso-date(now) " " messageText skip.
   end.
 
 end class.
