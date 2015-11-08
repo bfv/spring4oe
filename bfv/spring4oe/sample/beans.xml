@@ -14,6 +14,9 @@
   </bean>
   
   <bean id="pablo" class="Progress.Lang.Object" scope="prototype" />
-          
+  <alias alias="juan" name="pablo" />
+  
+  <bean id="factmeth" class="bfv.spring4oe.sample.FactoryMethodSample" factory-method="GiveMeAnInstance" />
+    
 </beans>  
   
