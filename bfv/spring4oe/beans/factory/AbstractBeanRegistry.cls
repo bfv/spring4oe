@@ -3,7 +3,7 @@ using bfv.spring4oe.beans.factory.AliasRegistry.
 using bfv.spring4oe.beans.factory.IBeanRegistry.
 using bfv.spring4oe.beans.factory.IBeanDefinition.
 using bfv.spring4oe.beans.BeansException.
-using bfv.logging.Logger.
+using bfv.spring4oe.misc.Logger.
 
 block-level on error undo, throw.
 

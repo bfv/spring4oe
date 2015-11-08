@@ -1,6 +1,6 @@
 
 using Progress.Lang.AppError. 
-using bfv.logging.Logger.
+using bfv.spring4oe.misc.Logger.
 
 block-level on error undo, throw.
 

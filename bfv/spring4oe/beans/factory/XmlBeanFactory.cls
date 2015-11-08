@@ -2,7 +2,7 @@
 using bfv.spring4oe.beans.factory.AbstractBeanFactory.
 using bfv.spring4oe.beans.factory.IBeanDefinitionReader.
 using bfv.spring4oe.beans.factory.XmlBeanDefinitionReader.
-using bfv.logging.Logger.
+using bfv.spring4oe.misc.Logger.
 
 block-level on error undo, throw.
 

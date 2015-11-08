@@ -1,5 +1,5 @@
 using bfv.spring4oe.aop.*.
-using bfv.logging.Logger.
+using bfv.spring4oe.misc.Logger.
 
 class bfv.spring4oe.aop.AopRegistry implements IAopRegistry:
   

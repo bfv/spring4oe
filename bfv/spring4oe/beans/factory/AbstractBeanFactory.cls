@@ -8,7 +8,7 @@ using bfv.spring4oe.beans.factory.IBeanFactory.
 using bfv.spring4oe.beans.factory.IBeanRegistry.
 using bfv.spring4oe.beans.factory.IBeanDefinitionReader.
 using bfv.spring4oe.beans.factory.BeanInstantiationException.
-using bfv.logging.Logger.
+using bfv.spring4oe.misc.Logger.
 
 class bfv.spring4oe.beans.factory.AbstractBeanFactory implements IBeanFactory abstract:
   
