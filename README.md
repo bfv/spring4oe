@@ -1,7 +1,7 @@
 spring4oe
 =========
 
-A few year ago I created spring4oe primarily the core stuff because I felt the need for a DI container. This project is based on the Spring 2.5 definitions.
+A few year ago I created spring4oe primarily because I felt the need for a DI container. This project is based on the Spring 2.5 definitions.
 Although the sources suggest there's some AOP stuff as well this is not functional.
 
 disclaimer: this is Work In Progress. Please notice the MIT license attached.
