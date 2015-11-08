@@ -2,6 +2,8 @@
 using Progress.Lang.AppError. 
 using bfv.logging.Logger.
 
+block-level on error undo, throw.
+
 
 class bfv.spring4oe.beans.BeansException inherits AppError: 
 

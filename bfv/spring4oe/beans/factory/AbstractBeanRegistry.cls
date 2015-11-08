@@ -5,6 +5,8 @@ using bfv.spring4oe.beans.factory.IBeanDefinition.
 using bfv.spring4oe.beans.BeansException.
 using bfv.logging.Logger.
 
+block-level on error undo, throw.
+
 
 class bfv.spring4oe.beans.factory.AbstractBeanRegistry 
         inherits   AliasRegistry

@@ -1,5 +1,8 @@
+
 using Progress.Lang.*.
 using bfv.spring4oe.beans.BeansException. 
+
+block-level on error undo, throw.
 
 
 class bfv.spring4oe.beans.factory.BeanInstantiationException inherits BeansException: 

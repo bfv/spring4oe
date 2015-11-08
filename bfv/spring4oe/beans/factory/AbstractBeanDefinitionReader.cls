@@ -1,5 +1,9 @@
+
 using bfv.spring4oe.aop.IAopRegistry.
 using bfv.spring4oe.beans.factory.IBeanRegistry.
+
+block-level on error undo, throw.
+
 
 class bfv.spring4oe.beans.factory.AbstractBeanDefinitionReader abstract:
   

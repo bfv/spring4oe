@@ -1,6 +1,8 @@
 
 using bfv.spring4oe.beans.factory.IBeanDefinition.
 
+block-level on error undo, throw.
+
 
 class bfv.spring4oe.beans.factory.AbstractBeanDefinition implements IBeanDefinition abstract: 
 

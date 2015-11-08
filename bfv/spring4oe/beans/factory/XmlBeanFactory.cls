@@ -1,7 +1,11 @@
+
 using bfv.spring4oe.beans.factory.AbstractBeanFactory.
 using bfv.spring4oe.beans.factory.IBeanDefinitionReader.
 using bfv.spring4oe.beans.factory.XmlBeanDefinitionReader.
 using bfv.logging.Logger.
+
+block-level on error undo, throw.
+
 
 class bfv.spring4oe.beans.factory.XmlBeanFactory inherits AbstractBeanFactory:
   

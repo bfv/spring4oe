@@ -1,3 +1,7 @@
+
+block-level on error undo, throw.
+
+
 class bfv.spring4oe.beans.factory.BeanPropertyDefintion:
   
   define public property Name  as character          no-undo get. private set.

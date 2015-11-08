@@ -1,5 +1,9 @@
+
 using bfv.spring4oe.beans.factory.IAliasRegistry.
 using bfv.logging.Logger.
+
+block-level on error undo, throw.
+
 
 class bfv.spring4oe.beans.factory.AliasRegistry implements IAliasRegistry:
   
