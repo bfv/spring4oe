@@ -1,3 +1,5 @@
 .project
 .propath
 .settings/
+results.xml
+*.launch
