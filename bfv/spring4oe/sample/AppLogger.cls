@@ -1,14 +1,4 @@
  
- /*------------------------------------------------------------------------
-    File        : AppLogger
-    Purpose     : 
-    Syntax      : 
-    Description : 
-    Author(s)   : bronco
-    Created     : Sun Nov 08 14:35:28 CET 2015
-    Notes       : 
-  ----------------------------------------------------------------------*/
-
 using bfv.spring4oe.sample.ILogging from propath.
 using Progress.Lang.AppError from propath.
 

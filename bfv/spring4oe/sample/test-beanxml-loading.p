@@ -5,7 +5,7 @@ define variable success as logical no-undo.
 create x-document xdoc.
 
 
-success = xdoc:load("file", "C:\dev\spring4oe\src\spring4oe\bfv\spring4oe\sample\beans.xml", true).
+success = xdoc:load("file", "./bfv/spring4oe/sample/beans.xml", true).
 message success view-as alert-box.
 
 catch err1 as Progress.Lang.Error :

@@ -1,14 +1,4 @@
  
- /*------------------------------------------------------------------------
-    File        : FactoryMethodSample
-    Purpose     : 
-    Syntax      : 
-    Description : 
-    Author(s)   : bronco
-    Created     : Sun Nov 08 20:18:30 CET 2015
-    Notes       : 
-  ----------------------------------------------------------------------*/
-
 using bfv.spring4oe.sample.FactoryMethodSample.
 
 
