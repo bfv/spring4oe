@@ -12,6 +12,7 @@
 using Progress.Lang.Object.
 using bfv.spring4oe.beans.factory.XmlBeanFactory from propath.
 using OpenEdge.Core.Assert from propath.
+using bfv.spring4oe.tests.IUnitTestable from propath.
 
 block-level on error undo, throw.
 
@@ -89,7 +90,7 @@ class bfv.spring4oe.tests.Spring4OE_TC:
   end method.
   
   @test.
-  method public void Alias_on_singleton():
+  method public void Alias_on_singleton_returns_same_instance():
     
     define variable obj1 as Object no-undo.
     define variable obj2 as Object no-undo.
@@ -100,5 +101,38 @@ class bfv.spring4oe.tests.Spring4OE_TC:
     Assert:isTrue(obj1:Equals(obj2)).
     
   end method.
+  
+  @test.
+  method public void InitMethod_is_called():
+    
+    define variable obj as IUnitTestable no-undo.
+    
+    obj = cast(factory:GetBean("initobject"), "bfv.spring4oe.tests.IUnitTestable").
+    
+    Assert:Equals(obj:Value, "ValueIsSet").
+    
+  end method.
 	  
+  @test.
+  method public void Property_value_is_set():
+    
+    define variable obj as IUnitTestable no-undo.
+    
+    obj = cast(factory:GetBean("propertyobject"), "bfv.spring4oe.tests.IUnitTestable").
+    
+    Assert:Equals(obj:Value, "ValueViaProperty").
+    
+  end method.
+  
+  @test.
+  method public void Proprty_ref_is_set():
+
+    define variable obj as IUnitTestable no-undo.
+    
+    obj = cast(factory:GetBean("refpropertyobject"), "bfv.spring4oe.tests.IUnitTestable").
+    
+    Assert:Equals(obj:Ref:Value, "ValueIsSet").
+    
+  end method.
+  
 end class.

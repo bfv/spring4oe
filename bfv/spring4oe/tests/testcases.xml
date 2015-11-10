@@ -7,5 +7,15 @@
   <bean id="singleton" class="Progress.Lang.Object" scope="singleton" />
   <alias alias="singleton2" name="singleton" />
   
+  <bean id="initobject" class="bfv.spring4oe.tests.UnitTestObject" init-method="Init" />
+
+  <bean id="propertyobject" class="bfv.spring4oe.tests.UnitTestObject">
+    <property name="Value" value="ValueViaProperty" />
+  </bean>
+
+  <bean id="refpropertyobject" class="bfv.spring4oe.tests.UnitTestObject">
+    <property name="Ref" ref="initobject" />
+  </bean>
+  
 </beans>  
   
