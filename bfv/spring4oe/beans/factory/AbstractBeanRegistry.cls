@@ -4,6 +4,7 @@ using bfv.spring4oe.beans.factory.IBeanRegistry.
 using bfv.spring4oe.beans.factory.IBeanDefinition.
 using bfv.spring4oe.beans.BeansException.
 using bfv.spring4oe.misc.Logger.
+using bfv.spring4oe.beans.factory.BeanPropertyDefintion.
 
 block-level on error undo, throw.
 
@@ -26,18 +27,18 @@ class bfv.spring4oe.beans.factory.AbstractBeanRegistry
   end constructor.
   */
   
-  method public void RegisterBeanDefinition(cname as character, beandef as IBeanDefinItion):
+  method public void RegisterBeanDefinition(beanNameIn as character, beanDef as IBeanDefinItion):
     
-    if (can-find(first ttregisteredbean where ttregisteredbean.beanname = cname)) then
-      undo, throw new BeansException("Bean name ' " + cname + "' already in use").
+    if (can-find(first ttregisteredbean where ttregisteredbean.beanname = beanNameIn)) then
+      undo, throw new BeansException(substitute("Bean name '&1' already in use", beanNameIn)).
     
     create ttregisteredbean.
     assign
-      ttregisteredbean.beanname       = cname 
-      ttregisteredbean.beandefinition = beandef 
+      ttregisteredbean.beanname = beanNameIn 
+      ttregisteredbean.beandefinition = beanDef
       .
       
-    Logger:Information("registered: '" + cname + "' --> '" + beandef:ClassName + "' " + (if (beandef:Singleton) then "singleton" else "prototype")).
+    Logger:Information("registered: '" + beanNameIn + "' --> '" + beandef:ClassName + "' " + (if (beandef:Singleton) then "singleton" else "prototype")).
     
   end method.
   
@@ -47,66 +48,61 @@ class bfv.spring4oe.beans.factory.AbstractBeanRegistry
   end method.
   
   
-  method public IBeanDefinition GetBeanDefinition(cname as character):
+  method public IBeanDefinition GetBeanDefinition(beanNameIn as character):
     
-    def var beandef as IBeanDefinition no-undo.
+    define variable beanDef as IBeanDefinition no-undo.
     
     
-    find ttregisteredbean where ttregisteredbean.beanname = cname no-error.
+    find ttregisteredbean where ttregisteredbean.beanname = beanNameIn no-error.
     if (not avail ttregisteredbean) then 
       undo, throw new bfv.spring4oe.beans.factory.NoSuchBeanDefinitionException().
       
-    beandef = cast(ttregisteredbean.beandefinition, "IBeanDefinition").
+    beanDef = cast(ttregisteredbean.beandefinition, "IBeanDefinition").
     
-    return beandef.
+    return beanDef.
         
   end method.
   
   
   method public void CalcDependencies():
     
-    def var beandef       as IBeanDefinition no-undo.
-    def var propdef       as bfv.spring4oe.beans.factory.BeanPropertyDefintion no-undo.
-    def var propertynames as character no-undo.
-    def var i             as integer   no-undo.
+    define variable beanDef as IBeanDefinition no-undo.
+    define variable propertyDef as BeanPropertyDefintion no-undo.
+    define variable propertyNames as character no-undo.
+    define variable i as integer no-undo.
 
     for each ttregisteredbean:
 
-      beandef = cast(ttregisteredbean.beandefinition, "IBeanDefinition").
+      beanDef = cast(ttregisteredbean.beandefinition, "IBeanDefinition").
       
-      propertynames = beandef:GetPropertyNames().
-      do i = 1 to num-entries(propertynames):
+      propertyNames = beanDef:GetPropertyNames().
+      do i = 1 to num-entries(propertyNames):
         
-        propdef = beandef:GetProperty(entry(i, propertynames)).
+        propertyDef = beanDef:GetProperty(entry(i, propertynames)).
         
-        if (not propdef:IsValueProperty) then do:
+        if (not propertyDef:IsValueProperty) then do:
           create ttdependency.
           assign 
             ttdependency.beanname   = ttregisteredbean.beanname
-            ttdependency.references = GetName(propdef:Value)
-            ttdependency.singleton  = beandef:Singleton
+            ttdependency.references = GetName(propertyDef:Value)
+            ttdependency.singleton  = beanDef:Singleton
             .
             
         end.
       
-      end.
+      end.  /* do i = ... */
       
-    end.
+    end.  /* for each ttregisteredbean */
     
     for each ttdependency:
-      
       find ttregisteredbean where ttregisteredbean.beanname = ttdependency.references.
-      assign 
-        ttregisteredbean.referenced = ttregisteredbean.referenced + 1.
-        
+      ttregisteredbean.referenced = ttregisteredbean.referenced + 1.
     end.
-    
-    temp-table ttdependency:write-xml("file", "c:/tmp/ttdependency.xml", true).
     
     for each ttregisteredbean:
       Logger:Information(ttregisteredbean.beanname + " " + string(ttregisteredbean.referenced) + " referenced").
     end.
-     
+    
   end method.
   
 end class.

@@ -61,7 +61,7 @@ class bfv.spring4oe.beans.factory.AbstractBeanDefinition implements IBeanDefinit
   
   method public character GetPropertyNames():
     
-    def var pnames as character no-undo.
+    define variable pnames as character no-undo.
     
     
     for each ttproperty:
@@ -77,11 +77,13 @@ class bfv.spring4oe.beans.factory.AbstractBeanDefinition implements IBeanDefinit
   
   
   method public bfv.spring4oe.beans.factory.BeanPropertyDefintion GetProperty(propertyname as character):
+    
     find ttproperty where ttproperty.pname = propertyname no-error.
     if (avail ttproperty) then 
       return new bfv.spring4oe.beans.factory.BeanPropertyDefintion(ttproperty.pname, ttproperty.pvalue, ttproperty.valueprop).
     else
       return error.
+      
   end method.
       
 end class.

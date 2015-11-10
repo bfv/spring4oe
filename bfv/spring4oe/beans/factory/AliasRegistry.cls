@@ -12,32 +12,32 @@ class bfv.spring4oe.beans.factory.AliasRegistry implements IAliasRegistry:
     field calias as character
     .
     
-  method public void RegisterAlias(cname as character, calias as character):
+  method public void RegisterAlias(forName as character, aliasName as character):
     
-    if (can-find(first ttalias where ttalias.calias = calias)) then
-      undo, throw new bfv.spring4oe.beans.BeansException("Alias '" + calias + "' already defined").
+    if (can-find(first ttalias where ttalias.calias = aliasName)) then
+      undo, throw new bfv.spring4oe.beans.BeansException("Alias '" + aliasName + "' already defined").
       
     create ttalias.
     assign
-      ttalias.calias = calias
-      ttalias.cname  = cname
+      ttalias.calias = aliasName
+      ttalias.cname  = forName
       .
     
-    Logger:Information("registered: '" + calias + "' alias for '" + cname + "'").
+    Logger:Information("registered: '" + aliasName + "' alias for '" + forName + "'").
       
   end method.
 
   
-  method public logical IsAlias(calias as character).
-    return can-find(first ttalias where ttalias.calias = calias).
+  method public logical IsAlias(aliasName as character).
+    return can-find(first ttalias where ttalias.calias = aliasName).
   end method.
 
 
-  method public character GetAliases(cname as character):
+  method public character GetAliases(forName as character):
     
-    def var caliases as character no-undo.
+    define variable caliases as character no-undo.
     
-    for each ttalias where ttalias.cname = cname:
+    for each ttalias where ttalias.cname = forName:
       caliases = caliases + "," + ttalias.calias.  
     end.
     
@@ -49,9 +49,9 @@ class bfv.spring4oe.beans.factory.AliasRegistry implements IAliasRegistry:
   end method.
   
   
-  method public character GetName(calias as character):
-    find ttalias where ttalias.calias = calias no-error.
-    return (if avail ttalias then ttalias.cname else calias).
+  method public character GetName(aliasName as character):
+    find ttalias where ttalias.calias = aliasName no-error.
+    return (if available(ttalias) then ttalias.cname else aliasName).
   end method.
   
 end class.

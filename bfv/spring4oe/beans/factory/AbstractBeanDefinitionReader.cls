@@ -7,12 +7,12 @@ block-level on error undo, throw.
 
 class bfv.spring4oe.beans.factory.AbstractBeanDefinitionReader abstract:
   
-  define protected variable registry    as IBeanRegistry no-undo.
-  define protected variable aopregistry as IAopRegistry  no-undo.
+  define protected property Registry as IBeanRegistry no-undo get. set.
+  define protected property AopRegistry as IAopRegistry no-undo get. set.
   
-  constructor public AbstractBeanDefinitionReader(registry as IBeanRegistry, aopregistry as IAopRegistry):
-    this-object:registry    = registry.
-    this-object:aopregistry = aopregistry.
+  constructor public AbstractBeanDefinitionReader(registryIn as IBeanRegistry, aopregistryIn as IAopRegistry):
+    Registry    = registryIn.
+    AopRegistry = aopregistryIn.
   end.
   
 end class.

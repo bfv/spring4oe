@@ -9,7 +9,7 @@ class bfv.spring4oe.beans.BeansException inherits AppError:
 
   constructor public BeansException(exceptionMessage as character):
     
-    def var i as integer no-undo.
+    define variable i as integer no-undo.
           
     super(exceptionMessage, -1).
     

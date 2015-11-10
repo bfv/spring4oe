@@ -1,15 +1,13 @@
  
-using Progress.Lang.*.
-using bfv.spring4oe.beans.factory.*.
+using bfv.spring4oe.beans.factory.AbstractBeanDefinition.
 
 block-level on error undo, throw.
 
 
-class bfv.spring4oe.beans.factory.BeanDefinition inherits bfv.spring4oe.beans.factory.AbstractBeanDefinition: 
-
-  
-  constructor public BeanDefinition(classname as character, lsingleton as logical):
-    super(classname, lsingleton).  
+class bfv.spring4oe.beans.factory.BeanDefinition inherits AbstractBeanDefinition: 
+ 
+  constructor public BeanDefinition(className as character, isSingleton as logical):
+    super(className, isSingleton).  
   end.
   
 end class.

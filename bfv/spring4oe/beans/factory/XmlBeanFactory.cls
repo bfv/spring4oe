@@ -16,15 +16,14 @@ class bfv.spring4oe.beans.factory.XmlBeanFactory inherits AbstractBeanFactory:
     
     loadBeansDefinitions(xmlfile).
     BeansFactoryPostProcessing().
-/*    InitBeans().*/
         
   end.
   
   
   method private void loadBeansDefinitions(xmlfile as character):
     
-    def var filecontent as longchar                no-undo.
-    def var reader      as IBeanDefinitionReader no-undo.
+    define variable filecontent as longchar                no-undo.
+    define variable reader      as IBeanDefinitionReader no-undo.
     
     xmlfile = search(xmlfile).
     

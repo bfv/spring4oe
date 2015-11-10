@@ -26,7 +26,7 @@ class bfv.spring4oe.beans.factory.XmlBeanDefinitionReader inherits AbstractBeanD
   
   method public void LoadDefinitions(source as longchar):
     
-    def var successful as logical no-undo.
+    define variable successful as logical no-undo.
     
     create x-document xdoc.
     create x-noderef  xattr.
@@ -57,9 +57,9 @@ class bfv.spring4oe.beans.factory.XmlBeanDefinitionReader inherits AbstractBeanD
   
   method private void parseDefinitions():
     
-    def var xroot as handle  no-undo.
-    def var xnode as handle  no-undo.
-    def var i     as integer no-undo.
+    define variable xroot as handle no-undo.
+    define variable xnode as handle no-undo.
+    define variable i as integer no-undo.
     
     create x-noderef xroot.
     create x-noderef xnode.
@@ -98,19 +98,19 @@ class bfv.spring4oe.beans.factory.XmlBeanDefinitionReader inherits AbstractBeanD
   
   method private void processBean(xbean as handle):
     
-    def var beandef    as BeanDefinition no-undo.
-    def var beanid     as character      no-undo.
-    def var classname  as character      no-undo.
-    def var scope      as character      no-undo.
-    def var lsingleton as logical        no-undo init true.
-    def var initmethod as character      no-undo.
-    def var factmethod as character      no-undo.
+    define variable beandef    as BeanDefinition no-undo.
+    define variable beanid     as character      no-undo.
+    define variable classname  as character      no-undo.
+    define variable scope      as character      no-undo.
+    define variable lsingleton as logical        no-undo init true.
+    define variable initmethod as character      no-undo.
+    define variable factmethod as character      no-undo.
     
-    def var i          as integer no-undo.
-    def var numattr    as integer        no-undo.
-    def var attrval    as character      no-undo.
+    define variable i          as integer no-undo.
+    define variable numattr    as integer        no-undo.
+    define variable attrval    as character      no-undo.
 
-    def var numchilds  as integer        no-undo.
+    define variable numchilds  as integer        no-undo.
         
     
     /* read attributes */
@@ -175,13 +175,13 @@ class bfv.spring4oe.beans.factory.XmlBeanDefinitionReader inherits AbstractBeanD
   
   method private void processProperty(beandef as BeanDefinition, xparam as handle):
     
-    def var referenceprop as logical   no-undo.
-    def var valueprop     as logical   no-undo.
-    def var propertyname  as character no-undo.
-    def var propertyvalue as character no-undo.
-    def var i             as integer   no-undo.
-    def var numattr       as integer   no-undo.
-    def var attrval       as character no-undo.
+    define variable referenceprop as logical   no-undo.
+    define variable valueprop     as logical   no-undo.
+    define variable propertyname  as character no-undo.
+    define variable propertyvalue as character no-undo.
+    define variable i             as integer   no-undo.
+    define variable numattr       as integer   no-undo.
+    define variable attrval       as character no-undo.
     
 
     numattr = num-entries(xparam:attribute-names).
@@ -225,8 +225,8 @@ class bfv.spring4oe.beans.factory.XmlBeanDefinitionReader inherits AbstractBeanD
   
   method private void processAlias(xalias as handle):
     
-    def var cname  as character no-undo.
-    def var calias as character no-undo.
+    define variable cname  as character no-undo.
+    define variable calias as character no-undo.
     
     xalias:get-attribute-node(xattr, "name").
     cname = xattr:node-value.
