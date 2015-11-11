@@ -3,3 +3,6 @@
 .settings/
 results.xml
 *.launch
+*.pref
+*.xref
+
